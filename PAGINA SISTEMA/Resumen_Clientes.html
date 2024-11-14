@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Productos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barra lateral -->
+        <nav class="bg-dark text-white p-4" style="width: 250px;">
+            <h1 class="h4">MI RESUMEN DE VENTAS</h1>
+            <br>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="Ventas.html"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Resumen_Clientes.html';><i class="fas fa-user"></i> Mis Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='vento.html';><i class="fas fa-shopping-cart"></i> Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Facturación.html'><i class="fas fa-file-invoice"></i> Facturación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Devolución.html'><i class="fas fa-undo"></i> Devoluciones</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="informacion.html"><i class="fas fa-info-circle"></i> Información</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="flex-fill p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h1 class="h3">RESUMEN DE CLIENTES</h1>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <a href="Ventas.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Tarjetas de métricas -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Total de Usuarios Registrados
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">650</h5>
+                            <p>En este mes: 137</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Total de Usuarios Activos
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">487</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Total de Usuarios Inactivos
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">163</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+            <!-- Búsqueda y nuevo producto -->
+
+            <h1 class="h3">LISTADO DE CLIENTES</h1>
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <form class="d-flex flex-fill me-3">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="flex-grow: 2;">
+                    <button class="btn btn-outline-success" type="submit" style="width: 100px;">Buscar</button>
+                </form>
+                <a href="Nuevo_Cliente.html" class="btn btn-success"><i class="fas fa-plus"></i> Nuevo</a>
+            </div>
+
+            <!-- Filtros -->
+            <div class="d-flex mb-4">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Estado
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Todos</a></li>
+                        <li><a class="dropdown-item" href="#">Activo</a></li>
+                        <li><a class="dropdown-item" href="#">Inactivo</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tabla Clientes -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Nombre Completo</th>
+                            <th>Correo Electrónico</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Estado</th>
+                            <th>Ciudad</th>
+                            <th>Código Postal</th>
+                            <th>Disputas activas</th>
+                            <th>Disputas finalizadas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12937</td>
+                            <td>ShadowWolf</td>
+                            <td>Mariana Gómez</td>
+                            <td>mariana.gomez@example.com</td>
+                            <td>555-1234</td>
+                            <td>123 Calle Falsa, Piso 2</td>
+                            <td>Ciudad de México</td>
+                            <td>CDMX</td>
+                            <td>01000</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>23642</td>
+                            <td>MysticFlare</td>
+                            <td>Daniel Ruiz</td>
+                            <td>daniel.ruiz@example.com</td>
+                            <td>555-5678</td>
+                            <td>456 Avenida Principal, Piso 1</td>
+                            <td>Jalisco</td>
+                            <td>Guadalajara</td>
+                            <td>44100</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18462</td>
+                            <td>PixelNinja</td>
+                            <td>Valeria Ortega</td>
+                            <td>valeria.ortega@example.com</td>
+                            <td>555-8765</td>
+                            <td>789 Calle Pequeña, Piso 3</td>
+                            <td>Nuevo León</td>
+                            <td>Monterrey</td>
+                            <td>64000</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18462</td>
+                            <td>ThunderBolt</td>
+                            <td>José Mendoza</td>
+                            <td>jose.mendoza@example.com</td>
+                            <td>555-3456</td>
+                            <td>1010 Avenida Central, Piso 4</td>
+                            <td>Baja California</td>
+                            <td>Tijuana</td>
+                            <td>22000</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21623</td>
+                            <td>LunaDream</td>
+                            <td>Camila López</td>
+                            <td>camila.lopez@example.com</td>
+                            <td>555-2345</td>
+                            <td>500 Calle del Sol, Piso 5</td>
+                            <td>Querétaro</td>
+                            <td>Querétaro</td>
+                            <td>76000</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>97430</td>
+                            <td>GhostRider</td>
+                            <td>Juan Carlos Paredes</td>
+                            <td>juan.paredes@example.com</td>
+                            <td>555-9876</td>
+                            <td>321 Calle Escondida, Piso 1</td>
+                            <td>Oaxaca</td>
+                            <td>Oaxaca</td>
+                            <td>68000</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21466</td>
+                            <td>CyberFox</td>
+                            <td>Sofía Ramírez</td>
+                            <td>sofia.ramirez@example.com</td>
+                            <td>555-6543</td>
+                            <td>789 Calle Alegre, Piso 2</td>
+                            <td>Puebla</td>
+                            <td>Puebla</td>
+                            <td>72000</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>54332</td>
+                            <td>NeonDragon</td>
+                            <td>Diego Castro</td>
+                            <td>diego.castro@example.com</td>
+                            <td>555-4321</td>
+                            <td>123 Calle Victoria, Piso 3</td>
+                            <td>Sonora</td>
+                            <td>Hermosillo</td>
+                            <td>83000</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>64323</td>
+                            <td>FSilverArrow</td>
+                            <td>Andrea Morales</td>
+                            <td>andrea.morales@example.com</td>
+                            <td>555-7654</td>
+                            <td>456 Calle Luna, Piso 2</td>
+                            <td>Chiapas</td>
+                            <td>Tuxtla Gutiérrez</td>
+                            <td>29000</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

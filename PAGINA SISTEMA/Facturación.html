@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Productos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barra lateral -->
+        <nav class="bg-dark text-white p-4" style="width: 250px;">
+            <h1 class="h4">MI RESUMEN DE VENTAS</h1>
+            <br>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="Ventas.html"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Resumen_Clientes.html';><i class="fas fa-user"></i> Mis Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='vento.html';><i class="fas fa-shopping-cart"></i> Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Facturación.html'><i class="fas fa-file-invoice"></i> Facturación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Devolución.html'><i class="fas fa-undo"></i> Devoluciones</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="informacion.html"><i class="fas fa-info-circle"></i> Información</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="flex-fill p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h1 class="h3">RESUMEN DE FACTURACIÓN</h1>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <a href="Ventas.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+            
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        FACTURAS REALIZADAS EN EL MES
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">43</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        FACTURAS PENDIENTES POR REALIZAR
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">5</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        FACTURAS POR CORREGIR
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">2</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        FACTURAS CANCELADAS
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">1</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <!-- Búsqueda y nuevo producto -->
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <form class="d-flex flex-fill me-3">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="flex-grow: 2;">
+                    <button class="btn btn-outline-success" type="submit" style="width: 100px;">Buscar</button>
+                </form>
+                <a href="Nueva_Factura.html" class="btn btn-success"><i class="fas fa-plus"></i> Nuevo</a>
+            </div>
+
+            <!-- Filtros -->
+            <div class="d-flex mb-4">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tipo
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Todos</a></li>
+                        <li><a class="dropdown-item" href="#">Adquisición de Mercancias (G01)</a></li>
+                        <li><a class="dropdown-item" href="#">Gastos en General (G03)</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Estado
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Todos</a></li>
+                        <li><a class="dropdown-item" href="#">Enviadas</a></li>
+                        <li><a class="dropdown-item" href="#">Pendientes</a></li>
+                        <li><a class="dropdown-item" href="#">Por corregir</a></li>
+                        <li><a class="dropdown-item" href="#">Canceladas</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tabla productos -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha de Factura</th>
+                            <th>Nombre del Cliente</th>
+                            <th>Correo Electrónico</th>
+                            <th>Tipo de Factura</th>
+                            <th>Comentarios</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12937</td>
+                            <td>2023-10-12</td>
+                            <td>Juan Pérez</td>
+                            <td>juan.perez@example.com</td>
+                            <td>Gastos en general</td>
+                            <td>Sin comentarios</td>
+                            <td>Pendiente</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>23642</td>
+                            <td>2023-09-23</td>
+                            <td>María López</td>
+                            <td>maria.lopez@example.com</td>
+                            <td>Adquisición de mercancías</td>
+                            <td>Solicitar desglose detallado</td>
+                            <td>Enviado</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18462</td>
+                            <td>2023-11-02</td>
+                            <td>Carlos García</td>
+                            <td>carlos.garcia@example.com</td>
+                            <td>Gastos en general</td>
+                            <td>Ajustar monto a lo acordado</td>
+                            <td>Por corregir</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21623</td>
+                            <td>2023-09-15</td>
+                            <td>Lucía Fernández</td>
+                            <td>lucia.fernandez@example.com</td>
+                            <td>Adquisición de mercancías</td>
+                            <td>Corregir dirección de envío</td>
+                            <td>Pendiente</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>97430</td>
+                            <td>2023-11-07</td>
+                            <td>Raúl Jiménez</td>
+                            <td>raul.jimenez@example.com</td>
+                            <td>Gastos en general</td>
+                            <td>Sin comentarios</td>
+                            <td>Enviado</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21466</td>
+                            <td>2023-10-25</td>
+                            <td>Pedro Morales</td>
+                            <td>pedro.morales@example.com</td>
+                            <td>Adquisición de mercancías</td>
+                            <td>Revisar impuestos aplicados</td>
+                            <td>Por corregir</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>54332</td>
+                            <td>2023-09-30</td>
+                            <td>Laura Castillo</td>
+                            <td>laura.castillo@example.com</td>
+                            <td>Gastos en general</td>
+                            <td>Sin comentarios</td>
+                            <td>Enviado</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>64323</td>
+                            <td>2023-11-03</td>
+                            <td>Daniel Ruiz</td>
+                            <td>daniel.ruiz@example.com</td>
+                            <td>Adquisición de mercancías</td>
+                            <td>Aclarar el descuento aplicado</td>
+                            <td>Pendiente</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                   
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

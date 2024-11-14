@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barra lateral -->
+        <nav class="bg-dark text-white p-4" style="width: 250px;">
+            <h1 class="h4">MI RESUMEN DE VENTAS</h1>
+            <br>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="Ventas.html"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Resumen_Clientes.html';><i class="fas fa-user"></i> Mis Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='vento.html';><i class="fas fa-shopping-cart"></i> Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Facturación.html'><i class="fas fa-file-invoice"></i> Facturación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Devolución.html'><i class="fas fa-undo"></i> Devoluciones</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="informacion.html"><i class="fas fa-info-circle"></i> Información</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="flex-fill p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h1 class="h3">REGISTROS DE VENTAS</h1>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <a href="Ventas.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                PRODUCTO MÁS VENDIDO
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">RDR 2</h5>
+                                <p>En este mes: 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                PRODUCTO MENOS VENDIDO
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">ULTRAKILL</h5>
+                                <p>En este mes: 10</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                TOTAL DE VENTAS EN ESTE AÑO
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">876</h5>
+                                <p>En este mes: 68</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfico de barras de devoluciones mensuales -->
+            <div class="row mt-4">
+                <div class="col-md-6"> 
+                    <h3>Devoluciones Mensuales</h3>
+                    <canvas id="devolucionesChart" style="width: 100%; height: 300px;"></canvas> <!-- Ajustado el tamaño -->
+                </div>
+            </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const devolucionesData = {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            datasets: [{
+                label: 'Cantidad de Devoluciones',
+                data: [80,65,90,72,88,64,75,95,54,101,68, 0], 
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const devolucionesConfig = {
+            type: 'bar',
+            data: devolucionesData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Devoluciones Mensuales'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const devolucionesChart = new Chart(
+            document.getElementById('devolucionesChart'),
+            devolucionesConfig
+        );
+    </script>
+
+            <!-- Nueva venta y buscador -->
+            <div class="d-flex align-items-center justify-content-between my-3">
+                <form class="d-flex flex-fill me-3">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="flex-grow: 2;">
+                    <button class="btn btn-outline-success" type="submit" style="width: 100px;">Buscar</button>
+                </form>
+            </div>
+
+            <!-- Filtros -->
+            <div class="d-flex my-3">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categoría
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Shooter</a></li>
+                        <li><a class="dropdown-item" href="#">Acción y aventura</a></li>
+                        <li><a class="dropdown-item" href="#">Carreras</a></li>
+                        <li><a class="dropdown-item" href="#">RPG</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-3">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Estado
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Todos</a></li>
+                        <li><a class="dropdown-item" href="#">Entregado</a></li>
+                        <li><a class="dropdown-item" href="#">Pendiente</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tabla -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>ID de Venta</th>
+                            <th>ID de Producto</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Envío</th>
+                            <th>Monto total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11/03/2024</td>
+                            <td>1931749123842379</td>
+                            <td>12937</td>
+                            <td>ULTRAKILL</td>
+                            <td>Entregado</td>
+                            <td>Envio Estandar</td>
+                            <td>$280</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="Detalle_Venta.html" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>23/05/2024</td>
+                            <td>2178732647822197</td>
+                            <td>23642</td>
+                            <td>God of War</td>
+                            <td>Pendiente</td>
+                            <td>Entrega Express</td>
+                            <td>$699</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>28/04/2024</td>
+                            <td>3274893937457099</td>
+                            <td>97430</td>
+                            <td>Resident evil</td>
+                            <td>Pendiente</td>
+                            <td>Entrega Estandar</td>
+                            <td>$1049</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>29/06/2024</td>
+                            <td>5773506311570942</td>
+                            <td>21466</td>
+                            <td>Minecraft</td>
+                            <td>Entregado</td>
+                            <td>Entrega Estandar</td>
+                            <td>$285</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>23/08/2024</td>
+                            <td>0021313648534475</td>
+                            <td>76856</td>
+                            <td>NieR Automata</td>
+                            <td>Pendiente</td>
+                            <td>Entrega Express</td>
+                            <td>$520</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10/05/2024</td>
+                            <td>6088409726328254</td>
+                            <td>56455</td>
+                            <td>Cyberpunk 2077</td>
+                            <td>Pendiente</td>
+                            <td>Entrega Express</td>
+                            <td>$889</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>11/01/2024</td>
+                            <td>4951161304437576</td>
+                            <td>18462</td>
+                            <td>Red Dead Redemption 2</td>
+                            <td>Entregado</td>
+                            <td>Entrega Express</td>
+                            <td>$749</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-comment"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
