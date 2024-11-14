@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barra lateral -->
+        <nav class="bg-dark text-white p-4" style="width: 250px;">
+            <h1 class="h4">MI RESUMEN DE VENTAS</h1>
+            <br>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Resumen_Clientes.html';><i class="fas fa-user"></i> Mis Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='vento.html';><i class="fas fa-shopping-cart"></i> Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Facturación.html'><i class="fas fa-file-invoice"></i> Facturación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href='Devolución.html'><i class="fas fa-undo"></i> Devoluciones</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="informacion.html"><i class="fas fa-info-circle"></i> Información</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Información de detalle de venta-->
+        <main class="flex-fill p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h1 class="h3">Detalle de la venta</h1>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <a href="index.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+
+            <!--Mostrar datos de la venta seleccionada, en este caso la de la venta 1 de vento.html-->
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Información de la venta de: ULTRAKILL</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Fecha: <strong>11/03/2024</strong></p>
+                            <p class="card-text">Hora: <strong>12:00:00</strong></p>
+                            <p class="card-text">ID de Venta: <strong>1931749123842379</strong></p>
+                            <p class="card-text">ID de Cliente: <strong>12937</strong></p>
+                            <p class="card-text">ID de Producto: <strong>12938</strong></p>
+                            <p class="card-text">Nombre del Cliente: <strong>Mariana Gómez</strong></p>
+                            <p class="card-text">Dirección del cliente: <strong>123 Calle Falsa, Piso 2</strong></p>
+                            <p class="card-text">Código Postal: <strong>01000</strong></p>
+                            <p class="card-text">Referencias: <strong>Casa de dos pisos</strong></p>
+                            <p class="card-text">Cant. de Productos: <strong>1</strong></p>
+                            <p class="card-text">Método de Pago: <strong>Tarjeta de débito</strong></p>
+                            <p class="card-text">Subtotal: <strong>$230</strong></p>
+                            <p class="card-text">Envío: <strong>$50</strong></p>
+                            <p class="card-text">Total: <strong>$280</strong></p>
+                        </div>  
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Estado del Envío</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="card-text">Enviado</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="card-text">Reparto</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="card-text">Entregado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
